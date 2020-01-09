@@ -25,4 +25,4 @@ steps:
   inputs:
     nexusIqService: 'IQ Server'
     applicationId: 'Webgoat'
-    stage: 'Build'
+    stage: 'stage-release'
