@@ -26,3 +26,4 @@ steps:
     nexusIqService: 'IQ Server'
     applicationId: 'Webgoat'
     stage: 'stage-release'
+    continueOnError: true
