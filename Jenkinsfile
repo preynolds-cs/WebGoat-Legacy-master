@@ -5,7 +5,7 @@ pipeline {
         ARTEFACT_NAME = "${WORKSPACE}/target/WebGoat-${BUILD_VERSION}.war"
         DEV_REPO = 'maven-development'
         TAG_FILE = "${WORKSPACE}/tag.json"
-        IQ_SCAN_URL = ""
+        IQ_SCAN_URL = "http://10.0.0.150:8070"
     }
     tools {
        maven 'M3'
