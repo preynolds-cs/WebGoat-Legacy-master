@@ -55,24 +55,7 @@ pipeline {
                     
                     // construct the meta data (Pipeline Utility Steps plugin)
                     // In Jenkins > Settings > Manage Plugins and install the "Pipeline utility" plugin << REQUIRED!!!
-                    def tagdata = readJSON text: '{}' 
-                    tagdata.buildUser = "${USER}" as String
-                    tagdata.buildNumber = "${BUILD_NUMBER}" as String
-                    tagdata.buildId = "${BUILD_ID}" as String
-                    tagdata.buildJob = "${JOB_NAME}" as String
-                    tagdata.buildTag = "${BUILD_TAG}" as String
-                    tagdata.appVersion = "${BUILD_VERSION}" as String
-                    tagdata.buildUrl = "${BUILD_URL}" as String
-                    tagdata.iqScanUrl = "${IQ_SCAN_URL}" as String
-                    //tagData.promote = "no" as String
-
-                    writeJSON(file: "${TAG_FILE}", json: tagdata, pretty: 4)
-                    sh 'cat ${TAG_FILE}'
-
-                    createTag nexusInstanceId: 'nexus', tagAttributesPath: "${TAG_FILE}", tagName: "${BUILD_TAG}"
-
-                    // write the tag name to the build page (Rich Text Publisher plugin)
-                    rtp abortedAsStable: false, failedAsStable: false, parserName: 'Confluence', stableText: "Nexus Repository Tag: ${BUILD_TAG}", unstableAsStable: true 
+                   
                 }
             }
         }
