@@ -52,7 +52,7 @@ pipeline {
                     echo "${WORKSPACE}"
                     
                     // construct the meta data (Pipeline Utility Steps plugin)
-                    // In Jenkins > Settings > Manage Plugins and install the Pipeline utility plugin.
+                    // In Jenkins > Settings > Manage Plugins and install the "Pipeline utility" plugin << REQUIRED!!!
                     def tagdata = readJSON text: '{}' 
                     tagdata.buildUser = "${USER}" as String
                     tagdata.buildNumber = "${BUILD_NUMBER}" as String
