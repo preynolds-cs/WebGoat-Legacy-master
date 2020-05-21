@@ -50,6 +50,7 @@ pipeline {
                     echo "${GIT_BRANCH}"
                     echo "${GIT_COMMIT}"
                     echo "${WORKSPACE}"
+                    echo "User = ${USER} userenv=${env.USER}"
                     
                     // construct the meta data (Pipeline Utility Steps plugin)
                     // In Jenkins > Settings > Manage Plugins and install the "Pipeline utility" plugin << REQUIRED!!!
