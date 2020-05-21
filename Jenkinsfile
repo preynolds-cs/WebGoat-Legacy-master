@@ -23,6 +23,7 @@ pipeline {
             }
         }
 
+        // Once you run this pipeline once, you will need to approve the script from the console output
         stage('Nexus IQ Scan'){
             steps {
                 script{         
@@ -51,6 +52,7 @@ pipeline {
                     echo "${WORKSPACE}"
                     
                     // construct the meta data (Pipeline Utility Steps plugin)
+                    // In Jenkins > Settings > Manage Plugins and install the Pipeline utility plugin.
                     def tagdata = readJSON text: '{}' 
                     tagdata.buildUser = "${USER}" as String
                     tagdata.buildNumber = "${BUILD_NUMBER}" as String
