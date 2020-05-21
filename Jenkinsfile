@@ -17,7 +17,7 @@ pipeline {
             }
             post {
                 success {
-                    echo 'Now archiving...'
+                    echo 'Now archiving ...'
                     archiveArtifacts artifacts: "**/target/*.war"
                 }
             }
@@ -46,11 +46,11 @@ pipeline {
                 script {
     
                     // Git data (Git plugin)
-                    echo "${GIT_URL}"
+                    echo "url is ${GIT_URL}"
                     echo "${GIT_BRANCH}"
                     echo "${GIT_COMMIT}"
-                    echo "${WORKSPACE}"
-                    echo "User = ${USER} userenv=${env.USER}"
+                    echo "workspace is ${WORKSPACE}"
+                    echo "User = ${USER} userenv = ${env.USER}"
                     
                     // construct the meta data (Pipeline Utility Steps plugin)
                     // In Jenkins > Settings > Manage Plugins and install the "Pipeline utility" plugin << REQUIRED!!!
