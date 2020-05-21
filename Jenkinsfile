@@ -50,7 +50,7 @@ pipeline {
                     echo "${GIT_BRANCH}"
                     echo "${GIT_COMMIT}"
                     echo "workspace is ${WORKSPACE}"
-                    echo "User = ${USER} userenv = ${env.USER}"
+                    echo "why are you not printing - $USER "
                     
                     // construct the meta data (Pipeline Utility Steps plugin)
                     // In Jenkins > Settings > Manage Plugins and install the "Pipeline utility" plugin << REQUIRED!!!
