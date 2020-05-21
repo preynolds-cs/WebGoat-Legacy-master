@@ -48,9 +48,10 @@ pipeline {
                     // Git data (Git plugin)
                     echo "url is ${GIT_URL}"
                     echo "${GIT_BRANCH}"
+                    echo "why are you not printing - $USER "
                     echo "${GIT_COMMIT}"
                     echo "workspace is ${WORKSPACE}"
-                    echo "why are you not printing - $USER "
+
                     
                     // construct the meta data (Pipeline Utility Steps plugin)
                     // In Jenkins > Settings > Manage Plugins and install the "Pipeline utility" plugin << REQUIRED!!!
