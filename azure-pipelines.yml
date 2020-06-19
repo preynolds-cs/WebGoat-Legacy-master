@@ -10,20 +10,19 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Maven@3
+- task: NodeTool@0
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+-script: |
+    npm install
+    npm run build
+  displayName: 'NPM install and build'
 
 - task: NexusIqPipelineTask@1
   inputs:
-    nexusIqService: 'IQ Server'
-    applicationId: 'Webgoat'
-    stage: 'stage-release'
-    continueOnError: true
+    nexusIqService: 'nexus-iq-conn'
+    applicationId: 'final'
+    stage: 'Build'
+
